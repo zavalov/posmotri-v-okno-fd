@@ -1,3 +1,11 @@
+/* 
+координаты PixelPerfect:
+IMG: #4 Посмотри в окно - Initial.png
+X: 240
+Y: 58
+Z: 0.5
+*/
+
 *,
 *::before,
 *::after {
@@ -9,6 +17,7 @@ html {
 }
 
 .page {
+  display: flex;
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
@@ -16,7 +25,19 @@ html {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   background-color: #1b1919;
-}
+  justify-content: center;
+  align-items: center;
+} 
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+} 
 
 h1,
 h2,
@@ -37,7 +58,37 @@ ol {
   list-style: none;
 }
 
-/* Кастомный скроллбар */
+button {
+  background-color: transparent;
+  border: 1px solid #fff;
+  font-family: 'Fira Sans Condensed' sans-serif;
+  color: #fff;
+  font-size: 16px; /* 18px в макете, но не по PixelPerfect */
+  font-weight: 700;
+  line-height: 21.6px;
+}
+
+button:hover {
+  text-decoration: underline;
+  /* text-underline-offset: 2px;
+  text-decoration-thickness: 1px; */
+  cursor: pointer;
+}
+
+button:active {
+  background-color: #545050;
+  text-decoration: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
 .custom-scrollbar::-webkit-scrollbar {
   width: 4px;
 }
@@ -49,3 +100,283 @@ ol {
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background-color: #D9D9D9;
 }
+
+.content {
+  display: grid;
+  grid-template-columns: 711px 399px;
+  grid-template-rows: auto auto;
+  column-gap: 30px;
+  width: 1140px;
+  height: 534px; 
+  align-items: end;
+  margin: 30px;
+}
+
+.result {
+  grid-area: 1 / 1 / 2 / 2;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.result__video-container {
+  position: relative;
+  width: 711px;
+  height: 386px;
+  flex-grow: 0;
+  margin-bottom: 16px;
+}
+
+.result__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.search-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.search-form__fieldset {
+  border: none;
+}
+
+.search-form__fieldset-title {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.6px;
+  padding-bottom: 5px;
+}
+
+.search-form__label {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+}
+
+.search-form__label-text:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.search-form__label:has(:not(:active):focus-visible) {
+  outline: 1px solid #fff;
+  outline-offset: 1px;    
+}
+
+.search-form__textfield {
+  width: 225px;
+  height: 27px;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  border-right: 1px solid transparent;
+  border-left: 1px solid transparent;
+  padding-left: 0;
+  color: #fff;
+  font-family: inherit;
+  font-size: inherit;
+  background-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.search-form__textfield::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-form__textfield:active {
+  border-right-color: #fff;
+  border-left-color: #fff;
+}
+
+.search-form__textfield:focus {
+  outline: none;
+}
+
+.search-form__textfield:has(:not(:active):focus-visible) {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px;
+  padding-bottom: 5px;
+}
+
+.search-form__checkbox {
+  outline: none;
+}
+
+.search-form__checkbox:hover {
+  cursor: pointer;
+}
+
+.search-form__pseudo-checkbox {
+  justify-self: center;
+  align-self: center;
+  width: 19px;
+  height: 19px;
+  border: 1px solid #fff;
+  margin-right: 5px;
+}
+
+.search-form__pseudo-checkbox::after {
+  background-color: #fff;
+  padding: 1px;
+}
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox {
+  border: 2px solid #000;
+  outline: 1px solid #fff;
+  outline-offset: -1px;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.search-form__submit-button {
+  position: relative;
+  min-width: 194px;
+  min-height: 34px;
+}
+
+.content__details {
+  grid-area: 1 / 2 / 2 / 3;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: end;
+  max-height: 534px;
+}
+
+.title {
+  padding-bottom: 22px; /* 26px в макете, но не по PixelPerfect */
+  font-family: 'Oswald', sans-serif;
+  font-size: 75px;
+  font-weight: 700;
+  line-height: 70.5px;
+  text-transform: uppercase;
+}
+
+.content__accent {
+  color: #545050;
+}
+
+.content__list-container {
+  position: relative;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  height: 298px;
+  /* padding-top: 3px; хорошо для аутлайна верхней карточки, но сдвигает всё остальное */
+}
+
+.content__list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.card-list-item-template {
+  position: absolute;
+  justify-content: space-between;
+}
+
+.content__list-item {
+  display: block;
+  position: relative;
+  flex-direction: row;
+  justify-content: space-between;
+  max-height: 103px;
+  padding: 0 3px;
+}
+
+.content__list-item:hover {
+  text-decoration: underline;
+  /* text-underline-offset: 2px;
+  text-decoration-thickness: 1px; */
+}
+
+.content__list-item:active {
+  background-color: #545050;
+  text-decoration: none;
+}
+
+.content__list-item:focus {
+  outline: none;
+}
+
+.content__list-item:has(:focus-visible) {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
+.content__card-link {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+}
+
+.content__card-link_current {
+  background-color: #545050;
+}
+
+.content__video-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.content__video-card-description-container {
+  flex-grow: 1;
+  max-width: 196px;
+}
+
+.content__video-card-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 30px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  padding-top: 2px; 
+}
+
+.content__video-card-description {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 16.2px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  padding-top: 3px;
+} 
+
+.content__video-card-thumbnail {
+  position: relative;
+  display: flex;
+  width: 194px;
+  height: 103px;
+  object-fit: cover;
+  object-position: center;
+  align-items: flex-end;
+  flex-shrink: 0;
+  margin-right: auto;
+}
+
+.more-button {
+  width: 100%;
+  min-height: 34px;
+} 
