@@ -274,6 +274,7 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   height: 298px;
+  gap: 30px;
   /* padding-top: 3px; хорошо для аутлайна верхней карточки, но сдвигает всё остальное */
 }
 
@@ -295,6 +296,7 @@ button:focus-visible {
   justify-content: space-between;
   max-height: 103px;
   padding: 0 3px;
+
 }
 
 .content__list-item:hover {
